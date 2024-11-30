@@ -2,6 +2,12 @@ import { Box, Button } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { useThemeContext } from "../common/ThemeContext";
 
+const contacts: { image: string; link: string }[] = [
+  { image: "twitter", link: "x.com" },
+  { image: "github", link: "github.com" },
+  { image: "linkedin", link: "linkedin.com" },
+];
+
 const useStyles = makeStyles(() => ({
   mainSection: {
     display: "flex",
@@ -62,24 +68,16 @@ export const Hero = () => {
         <h2>{"Software Engineer"}</h2>
 
         <Box className={classes.links} component={"span"}>
-          <a style={{ margin: 0 }} href="https://x.com/" target="_blank">
-            <img
-              style={{ width: "30px" }}
-              src={`/images/svg/twitter_${mode}.svg`}
-            />
-          </a>
-          <a style={{ margin: 0 }} href="https://github.com/" target="_blank">
-            <img
-              style={{ width: "30px" }}
-              src={`/images/svg/github_${mode}.svg`}
-            />
-          </a>
-          <a style={{ margin: 0 }} href="https://linkedin.com/" target="_blank">
-            <img
-              style={{ width: "30px" }}
-              src={`/images/svg/linkedin_${mode}.svg`}
-            />
-          </a>
+          {contacts.map((contact) => {
+            return (
+              <a href={`https://${contact.link}/`} target="_blank">
+                <img
+                  style={{ width: "30px" }}
+                  src={`/images/svg/${contact.image}_${mode}.svg`}
+                />
+              </a>
+            );
+          })}
         </Box>
         <Box className={classes.description} component={"p"}>
           {
