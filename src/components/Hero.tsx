@@ -52,11 +52,13 @@ export const Hero = () => {
         <img
           style={{ maxWidth: "200px" }}
           src="https://harris-johnsen.netlify.app/assets/hero-img-Cqh1d5RO.png"
+          draggable={false}
         />
         <img
           style={{ position: "absolute", right: 0, width: "25px" }}
           src={`/images/svg/${mode}_mode.svg`}
           onClick={toggleTheme}
+          draggable={false}
         />
       </Box>
       <Box component={"div"} className={classes.info}>
@@ -74,6 +76,7 @@ export const Hero = () => {
                 <img
                   style={{ width: "30px" }}
                   src={`/images/svg/${contact.image}_${mode}.svg`}
+                  draggable={false}
                 />
               </a>
             );
