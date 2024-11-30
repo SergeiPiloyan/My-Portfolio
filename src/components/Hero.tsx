@@ -1,24 +1,48 @@
-import { Button } from "@mui/material";
+import { Box, Button } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import { useThemeContext } from "../common/ThemeContext";
+
+const useStyles = makeStyles(() => ({
+  mainSection: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    textAlign: "center",
+    gap: "20px",
+    height: "100dvh",
+    minHeight: "500px",
+  },
+  section: {
+    position: "relative",
+  },
+  info: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    gap: "20px",
+    lineHeight: "1.2",
+  },
+  links: {
+    display: "flex",
+    gap: "25px",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  description: {
+    maxWidth: "24ch",
+    alignSelf: "center",
+  },
+}));
 
 export const Hero = () => {
   const { theme, toggleTheme } = useThemeContext();
+  const classes = useStyles();
+
   const mode = theme.palette.mode;
 
   return (
-    <section
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        textAlign: "center",
-        gap: "20px",
-        height: "100dvh",
-        minHeight: "500px",
-      }}
-      id="hero"
-    >
-      <div style={{ position: "relative" }}>
+    <Box component={"section"} className={classes.mainSection} id="hero">
+      <Box component={"div"} className={classes.section}>
         <img
           style={{ maxWidth: "200px" }}
           src="https://harris-johnsen.netlify.app/assets/hero-img-Cqh1d5RO.png"
@@ -28,29 +52,16 @@ export const Hero = () => {
           src={`/images/svg/${mode}_mode.svg`}
           onClick={toggleTheme}
         />
-      </div>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          gap: "20px",
-        }}
-      >
-        <h1 style={{ lineHeight: "1.2" }}>
-          Harris
+      </Box>
+      <Box component={"div"} className={classes.info}>
+        <h1>
+          {"Serhii"}
           <br />
-          Johnsen
+          {"Pyloian"}
         </h1>
-        <h2>Frontend Developer</h2>
-        <span
-          style={{
-            display: "flex",
-            gap: "25px",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
+        <h2>{"Software Engineer"}</h2>
+
+        <Box className={classes.links} component={"span"}>
           <a style={{ margin: 0 }} href="https://x.com/" target="_blank">
             <img
               style={{ width: "30px" }}
@@ -69,17 +80,20 @@ export const Hero = () => {
               src={`/images/svg/linkedin_${mode}.svg`}
             />
           </a>
-        </span>
-        <p style={{ maxWidth: "24ch", alignSelf: "center" }}>
-          With a passion for developing modern React web apps for commercial
-          businesses.
-        </p>
-        <a
+        </Box>
+        <Box className={classes.description} component={"p"}>
+          {
+            "With a passion for developing modern React web apps for commercial businesses."
+          }
+        </Box>
+        <Box
+          component={"div"}
           style={{ width: "fit-content", alignSelf: "center" }}
-          href="cv.pdf"
-          download
         >
           <Button
+            download
+            variant="contained"
+            href="cv.pdf"
             sx={{
               borderRadius: "20px",
               width: "126px",
@@ -87,12 +101,11 @@ export const Hero = () => {
               fontSize: "20px",
               fontWeight: "bold",
             }}
-            variant="contained"
           >
-            Resume
+            {"Resume"}
           </Button>
-        </a>
-      </div>
-    </section>
+        </Box>
+      </Box>
+    </Box>
   );
 };
