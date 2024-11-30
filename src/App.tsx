@@ -1,5 +1,6 @@
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { useThemeContext } from "./common/ThemeContext";
+import { Hero } from "./components/Hero";
 import "./App.css";
 
 const App = () => {
@@ -8,7 +9,7 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <>Portfolio</>
+      <Hero />
     </ThemeProvider>
   );
 };
