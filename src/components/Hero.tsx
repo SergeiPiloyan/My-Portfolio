@@ -20,12 +20,10 @@ export const Hero = () => {
     >
       <div style={{ position: "relative" }}>
         <img
-          draggable={false}
           style={{ maxWidth: "200px" }}
           src="https://harris-johnsen.netlify.app/assets/hero-img-Cqh1d5RO.png"
         />
         <img
-          draggable={false}
           style={{ position: "absolute", right: 0, width: "25px" }}
           src={`/images/svg/${mode}_mode.svg`}
           onClick={toggleTheme}
@@ -55,21 +53,18 @@ export const Hero = () => {
         >
           <a style={{ margin: 0 }} href="https://x.com/" target="_blank">
             <img
-              draggable={false}
               style={{ width: "30px" }}
               src={`/images/svg/twitter_${mode}.svg`}
             />
           </a>
           <a style={{ margin: 0 }} href="https://github.com/" target="_blank">
             <img
-              draggable={false}
               style={{ width: "30px" }}
               src={`/images/svg/github_${mode}.svg`}
             />
           </a>
           <a style={{ margin: 0 }} href="https://linkedin.com/" target="_blank">
             <img
-              draggable={false}
               style={{ width: "30px" }}
               src={`/images/svg/linkedin_${mode}.svg`}
             />

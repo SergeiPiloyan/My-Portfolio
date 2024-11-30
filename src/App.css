@@ -31,3 +31,8 @@ p {
   font-size: 16px;
   font-weight: 300;
 }
+
+img {
+  pointer-events: none;
+  user-select: none;
+}
