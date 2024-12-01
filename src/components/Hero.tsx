@@ -1,12 +1,8 @@
 import { Box, Button } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { useThemeContext } from "../common/ThemeContext";
-
-const contacts: { image: string; link: string }[] = [
-  { image: "twitter", link: "x.com" },
-  { image: "github", link: "github.com" },
-  { image: "linkedin", link: "linkedin.com" },
-];
+import { contacts } from "../consts";
+import { getImagePath } from "../utils";
 
 const useStyles = makeStyles(() => ({
   mainSection: {
@@ -38,7 +34,24 @@ const useStyles = makeStyles(() => ({
     maxWidth: "24ch",
     alignSelf: "center",
   },
+  modeImg: {
+    position: "absolute",
+    right: 0,
+    width: "25px",
+  },
 }));
+
+const Contact = (props: { link: string; image: string; mode: string }) => {
+  return (
+    <a href={`https://${props.link}/`} target="_blank">
+      <img
+        style={{ width: "30px" }}
+        src={getImagePath(`${props.image}_${props.mode}`, "svg")}
+        draggable={false}
+      />
+    </a>
+  );
+};
 
 export const Hero = () => {
   const { theme, toggleTheme } = useThemeContext();
@@ -51,12 +64,12 @@ export const Hero = () => {
       <Box component={"div"} className={classes.section}>
         <img
           style={{ maxWidth: "200px" }}
-          src="https://harris-johnsen.netlify.app/assets/hero-img-Cqh1d5RO.png"
+          src={getImagePath("hero", "png")}
           draggable={false}
         />
         <img
-          style={{ position: "absolute", right: 0, width: "25px" }}
-          src={`/images/svg/${mode}_mode.svg`}
+          className={classes.modeImg}
+          src={getImagePath(`${mode}_mode`, "svg")}
           onClick={toggleTheme}
           draggable={false}
         />
@@ -70,17 +83,14 @@ export const Hero = () => {
         <h2>{"Software Engineer"}</h2>
 
         <Box className={classes.links} component={"span"}>
-          {contacts.map((contact) => {
-            return (
-              <a href={`https://${contact.link}/`} target="_blank">
-                <img
-                  style={{ width: "30px" }}
-                  src={`/images/svg/${contact.image}_${mode}.svg`}
-                  draggable={false}
-                />
-              </a>
-            );
-          })}
+          {contacts.map((contact, i) => (
+            <Contact
+              image={contact.image}
+              link={contact.link}
+              mode={mode}
+              key={`${i}_${contact.image}`}
+            />
+          ))}
         </Box>
         <Box className={classes.description} component={"p"}>
           {

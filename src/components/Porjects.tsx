@@ -1,29 +1,13 @@
 import { Box } from "@mui/material";
 import { makeStyles } from "@mui/styles";
+import { projects } from "../consts";
+import { getImagePath } from "../utils";
 
 type ProjectCardProps = {
   logo: string;
   name: string;
   description: string;
 };
-
-const projects: ProjectCardProps[] = [
-  {
-    name: "CRM System",
-    description: "Customer Management Software",
-    logo: "viberr.png",
-  },
-  {
-    name: "Affiliation Platform",
-    description: "Partner Management Solution",
-    logo: "burger.png",
-  },
-  {
-    name: "Monitoring",
-    description: "Server Performance Tracker",
-    logo: "fitlift.png",
-  },
-];
 
 const useStyles = makeStyles(() => ({
   mainContainer: {
@@ -62,7 +46,7 @@ const ProjectCard = (props: ProjectCardProps) => {
     <Box component={"div"} className={classes.project}>
       <img
         className={classes.projectLogo}
-        src={`/images/png/${props.logo}`}
+        src={getImagePath(props.logo, "png")}
         alt="Logo"
       />
       <h3>{props.name}</h3>
