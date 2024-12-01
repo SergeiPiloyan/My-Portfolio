@@ -66,11 +66,12 @@ export const Projects = () => {
     >
       <h1 className={classes.title}>{"Projects"}</h1>
       <Box component={"div"} className={classes.projectsContainer}>
-        {projects.map((project) => (
+        {projects.map((project, i) => (
           <ProjectCard
             name={project.name}
             logo={project.logo}
             description={project.description}
+            key={`${i}_${project.name}`}
           />
         ))}
       </Box>
