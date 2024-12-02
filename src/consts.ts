@@ -21,3 +21,29 @@ export const contacts: { image: string; link: string }[] = [
   { image: "github", link: "github.com" },
   { image: "linkedin", link: "linkedin.com" },
 ];
+
+export const frontSkills = [
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "TypeScript",
+  "React",
+  "Next",
+  "Sass/SCSS",
+  "Material UI",
+  "Redux",
+];
+
+export const backSkills = [
+  "Node",
+  "Express",
+  "Nest",
+  "PostgreSQL",
+  "MongoDB",
+  "BigQuery",
+  "REST",
+  "JWT",
+  "CI/CD",
+];
+
+export const generalSkills = ["AWS", "GCP", "Docker", "Git", "Postman", "Jira"];
