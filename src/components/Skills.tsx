@@ -22,6 +22,7 @@ const useStyles = makeStyles(() => ({
     flexWrap: "wrap",
     rowGap: "40px",
     maxWidth: "26ch",
+    gap: "16px",
   },
   title: {
     marginBottom: "30px",
