@@ -111,6 +111,7 @@ export const Hero = () => {
               height: "50px",
               fontSize: "20px",
               fontWeight: "bold",
+              textTransform: "none",
             }}
           >
             {"Resume"}
