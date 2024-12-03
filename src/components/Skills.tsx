@@ -23,6 +23,10 @@ const useStyles = makeStyles(() => ({
     rowGap: "40px",
     maxWidth: "26ch",
     gap: "16px",
+    [`@media (min-width:800px)`]: {
+      maxWidth: "fit-content",
+      gap: "30px",
+    },
   },
   title: {
     marginBottom: "30px",
@@ -31,6 +35,9 @@ const useStyles = makeStyles(() => ({
     width: "100px",
     height: "1px",
     margin: "30px auto",
+    [`@media (min-width:800px)`]: {
+      width: "300px",
+    },
   },
 }));
 

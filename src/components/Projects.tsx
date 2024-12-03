@@ -23,6 +23,12 @@ const useStyles = makeStyles(() => ({
     flexDirection: "column",
     alignItems: "center",
     gap: "30px",
+    [`@media (min-width:800px)`]: {
+      flexDirection: "row",
+      justifyContent: "space-evenly",
+      flexWrap: "wrap",
+      padding: "0px 30px",
+    },
   },
   project: {
     width: "fit-content",

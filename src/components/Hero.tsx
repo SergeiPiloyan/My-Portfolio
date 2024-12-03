@@ -13,6 +13,18 @@ const useStyles = makeStyles(() => ({
     gap: "20px",
     height: "100dvh",
     minHeight: "500px",
+    [`@media (min-width:800px)`]: {
+      flexDirection: "row-reverse",
+      alignItems: "center",
+      justifyContent: "space-evenly",
+    },
+  },
+  hero: {
+    maxWidth: "200px",
+    [`@media (min-width:800px)`]: {
+      maxWidth: "400px",
+      width: "400px",
+    },
   },
   section: {
     position: "relative",
@@ -63,9 +75,9 @@ export const Hero = () => {
     <Box component={"section"} className={classes.mainSection} id="hero">
       <Box component={"div"} className={classes.section}>
         <img
-          style={{ maxWidth: "200px" }}
           src={getImagePath("hero", "png")}
           draggable={false}
+          className={classes.hero}
         />
         <img
           className={classes.modeImg}

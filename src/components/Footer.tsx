@@ -5,7 +5,7 @@ export const Footer = () => {
 
   return (
     <Box component={"section"} id="footer" sx={{ textAlign: "center" }}>
-      <p style={{ fontSize: "12px" }}>
+      <p style={{ fontSize: "16px" }}>
         &copy; {`${year} Serhii Pyloian`}
         <br />
         {"All rights reserved"}

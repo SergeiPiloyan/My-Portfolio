@@ -41,8 +41,10 @@ export const ThemeProviderContext: React.FC<{ children: React.ReactNode }> = ({
           MuiCssBaseline: {
             styleOverrides: {
               body: {
-                display: "flex",
-                justifyContent: "center",
+                [`@media (max-width:800px)`]: {
+                  display: "flex",
+                  justifyContent: "center",
+                },
                 transition: "background-color 0.4s ease",
                 margin: "0 auto 60px",
               },
@@ -50,6 +52,9 @@ export const ThemeProviderContext: React.FC<{ children: React.ReactNode }> = ({
                 display: "flex",
                 flexDirection: "column",
                 gap: "60px",
+                [`@media (min-width:800px)`]: {
+                  gap: "200px",
+                },
               },
             },
           },
