@@ -17,7 +17,7 @@ export const projects: { name: string; description: string; logo: string }[] = [
 ];
 
 export const contacts: { image: string; link: string }[] = [
-  { image: "twitter", link: "x.com" },
+  { image: "telegram", link: "t.me/sergei_piloyan" },
   { image: "github", link: "github.com/SergeiPiloyan" },
   { image: "linkedin", link: "linkedin.com/in/sergei-piloian/" },
 ];

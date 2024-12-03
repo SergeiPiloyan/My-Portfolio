@@ -32,10 +32,10 @@ const useStyles = makeStyles(() => ({
   },
   project: {
     width: "fit-content",
-    // transition: "transform 200ms ease-in-out",
-    // "&:hover": {
-    //   transform: "scale(1.05)",
-    // },
+    transition: "transform 200ms ease-in-out",
+    "&:hover": {
+      transform: "scale(1.05)",
+    },
   },
   projectLogo: {
     maxWidth: "250px",
