@@ -106,7 +106,7 @@ export const Hero = () => {
         </Box>
         <Box className={classes.description} component={"p"}>
           {
-            "With a passion for developing modern React web apps for commercial businesses."
+            "With a passion for developing modern web apps for commercial businesses."
           }
         </Box>
         <Box

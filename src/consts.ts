@@ -18,8 +18,8 @@ export const projects: { name: string; description: string; logo: string }[] = [
 
 export const contacts: { image: string; link: string }[] = [
   { image: "twitter", link: "x.com" },
-  { image: "github", link: "github.com" },
-  { image: "linkedin", link: "linkedin.com" },
+  { image: "github", link: "github.com/SergeiPiloyan" },
+  { image: "linkedin", link: "linkedin.com/in/sergei-piloian/" },
 ];
 
 export const frontSkills = [
