@@ -16,10 +16,36 @@ export const projects: { name: string; description: string; logo: string }[] = [
   },
 ];
 
-export const contacts: { image: string; link: string }[] = [
-  { image: "telegram", link: "t.me/sergei_piloyan" },
-  { image: "github", link: "github.com/SergeiPiloyan" },
-  { image: "linkedin", link: "linkedin.com/in/sergei-piloian/" },
+export const contacts: {
+  image: string;
+  link: string;
+  imageType: "png" | "svg";
+}[] = [
+  {
+    image: "telegram",
+    link: "https://t.me/sergei_piloyan",
+    imageType: "svg",
+  },
+  {
+    image: "github",
+    link: "https://github.com/SergeiPiloyan",
+    imageType: "svg",
+  },
+  {
+    image: "linkedin",
+    link: "https://linkedin.com/in/sergei-piloian/",
+    imageType: "svg",
+  },
+  {
+    image: "gmail",
+    link: "mailto:sergei.piloyan0302@gmail.com",
+    imageType: "png",
+  },
+  {
+    image: "phone",
+    link: "tel:+13237172979",
+    imageType: "png",
+  },
 ];
 
 export const frontSkills = [

@@ -51,14 +51,25 @@ const useStyles = makeStyles(() => ({
     right: 0,
     width: "25px",
   },
+  location: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: "10px",
+  },
 }));
 
-const Contact = (props: { link: string; image: string; mode: string }) => {
+const Contact = (props: {
+  link: string;
+  image: string;
+  mode: string;
+  imageType: "png" | "svg";
+}) => {
   return (
-    <a href={`https://${props.link}/`} target="_blank">
+    <a href={`${props.link}`} target="_blank">
       <img
-        style={{ width: "30px" }}
-        src={getImagePath(`${props.image}_${props.mode}`, "svg")}
+        style={{ width: "30px", height: "30px" }}
+        src={getImagePath(`${props.image}_${props.mode}`, props.imageType)}
         draggable={false}
       />
     </a>
@@ -93,7 +104,14 @@ export const Hero = () => {
           {"Pyloian"}
         </h1>
         <h2>{"Software Engineer"}</h2>
-
+        <Box className={classes.location} component={"div"}>
+          <img
+            draggable={false}
+            style={{ width: "30px", height: "30px" }}
+            src={getImagePath(`location_${mode}`, "png")}
+          />
+          <p>{"Los Angeles, CA"}</p>
+        </Box>
         <Box className={classes.links} component={"span"}>
           {contacts.map((contact, i) => (
             <Contact
@@ -101,6 +119,7 @@ export const Hero = () => {
               link={contact.link}
               mode={mode}
               key={`${i}_${contact.image}`}
+              imageType={contact.imageType}
             />
           ))}
         </Box>
@@ -109,26 +128,22 @@ export const Hero = () => {
             "With a passion for developing modern web apps for commercial businesses."
           }
         </Box>
-        <Box
-          component={"div"}
-          style={{ width: "fit-content", alignSelf: "center" }}
+        <Button
+          download
+          variant="contained"
+          href="cv.pdf"
+          sx={{
+            borderRadius: "20px",
+            alignSelf: "center",
+            width: "126px",
+            height: "50px",
+            fontSize: "20px",
+            fontWeight: "bold",
+            textTransform: "none",
+          }}
         >
-          <Button
-            download
-            variant="contained"
-            href="cv.pdf"
-            sx={{
-              borderRadius: "20px",
-              width: "126px",
-              height: "50px",
-              fontSize: "20px",
-              fontWeight: "bold",
-              textTransform: "none",
-            }}
-          >
-            {"Resume"}
-          </Button>
-        </Box>
+          {"Resume"}
+        </Button>
       </Box>
     </Box>
   );
