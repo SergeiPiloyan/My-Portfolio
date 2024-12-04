@@ -59,20 +59,59 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const Contact = (props: {
-  link: string;
-  image: string;
-  mode: string;
-  imageType: "png" | "svg";
-}) => {
+const ResumeButton = () => {
   return (
-    <a href={`${props.link}`} target="_blank">
-      <img
-        style={{ width: "30px", height: "30px" }}
-        src={getImagePath(`${props.image}_${props.mode}`, props.imageType)}
-        draggable={false}
-      />
-    </a>
+    <Button
+      download
+      variant="contained"
+      href="cv.pdf"
+      sx={{
+        borderRadius: "20px",
+        alignSelf: "center",
+        width: "126px",
+        height: "50px",
+        fontSize: "20px",
+        fontWeight: "bold",
+        textTransform: "none",
+      }}
+    >
+      {"Resume"}
+    </Button>
+  );
+};
+
+const Contacts = (props: { mode: string }) => {
+  const classes = useStyles();
+
+  return (
+    <>
+      <Box className={classes.location} component={"div"}>
+        <img
+          draggable={false}
+          style={{ width: "30px", height: "30px" }}
+          src={getImagePath(`location_${props.mode}`, "png")}
+        />
+        <p>{"Los Angeles, CA"}</p>
+      </Box>
+      <Box className={classes.links} component={"span"}>
+        {contacts.map((contact, i) => (
+          <a
+            href={`${contact.link}`}
+            target="_blank"
+            key={`${contact.image}_${i}`}
+          >
+            <img
+              style={{ width: "30px", height: "30px" }}
+              src={getImagePath(
+                `${contact.image}_${props.mode}`,
+                contact.imageType
+              )}
+              draggable={false}
+            />
+          </a>
+        ))}
+      </Box>
+    </>
   );
 };
 
@@ -104,46 +143,13 @@ export const Hero = () => {
           {"Pyloian"}
         </h1>
         <h2>{"Software Engineer"}</h2>
-        <Box className={classes.location} component={"div"}>
-          <img
-            draggable={false}
-            style={{ width: "30px", height: "30px" }}
-            src={getImagePath(`location_${mode}`, "png")}
-          />
-          <p>{"Los Angeles, CA"}</p>
-        </Box>
-        <Box className={classes.links} component={"span"}>
-          {contacts.map((contact, i) => (
-            <Contact
-              image={contact.image}
-              link={contact.link}
-              mode={mode}
-              key={`${i}_${contact.image}`}
-              imageType={contact.imageType}
-            />
-          ))}
-        </Box>
+        <Contacts mode={mode} />
         <Box className={classes.description} component={"p"}>
           {
             "With a passion for developing modern web apps for commercial businesses."
           }
         </Box>
-        <Button
-          download
-          variant="contained"
-          href="cv.pdf"
-          sx={{
-            borderRadius: "20px",
-            alignSelf: "center",
-            width: "126px",
-            height: "50px",
-            fontSize: "20px",
-            fontWeight: "bold",
-            textTransform: "none",
-          }}
-        >
-          {"Resume"}
-        </Button>
+        <ResumeButton />
       </Box>
     </Box>
   );
