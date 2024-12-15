@@ -64,7 +64,7 @@ const ResumeButton = () => {
     <Button
       download
       variant="contained"
-      href="cv.pdf"
+      href="Sergey_Pyloian_Resume.pdf"
       sx={{
         borderRadius: "20px",
         alignSelf: "center",
@@ -91,15 +91,11 @@ const Contacts = (props: { mode: string }) => {
           style={{ width: "30px", height: "30px" }}
           src={getImagePath(`location_${props.mode}`, "png")}
         />
-        <p>{"Los Angeles, CA"}</p>
+        <p>{"San-Francisco, CA"}</p>
       </Box>
       <Box className={classes.links} component={"span"}>
         {contacts.map((contact, i) => (
-          <a
-            href={`${contact.link}`}
-            target="_blank"
-            key={`${contact.image}_${i}`}
-          >
+          <a href={contact.link} target="_blank" key={`${contact.image}_${i}`}>
             <img
               style={{ width: "30px", height: "30px" }}
               src={getImagePath(
@@ -138,7 +134,7 @@ export const Hero = () => {
       </Box>
       <Box component={"div"} className={classes.info}>
         <h1>
-          {"Serhii"}
+          {"Sergey"}
           <br />
           {"Pyloian"}
         </h1>
