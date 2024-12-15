@@ -7,6 +7,7 @@ type ProjectCardProps = {
   logo: string;
   name: string;
   description: string;
+  link: string;
 };
 
 const useStyles = makeStyles(() => ({
@@ -35,13 +36,16 @@ const useStyles = makeStyles(() => ({
     transition: "transform 200ms ease-in-out",
     "&:hover": {
       transform: "scale(1.05)",
+      cursor: "pointer",
     },
   },
   projectLogo: {
-    maxWidth: "250px",
+    width: "200px",
+    height: "200px",
     alignSelf: "center",
     background: "#fff",
     borderRadius: "20px",
+    marginBottom: "20px",
   },
 }));
 
@@ -49,7 +53,11 @@ const ProjectCard = (props: ProjectCardProps) => {
   const classes = useStyles();
 
   return (
-    <Box component={"div"} className={classes.project}>
+    <Box
+      component={"div"}
+      className={classes.project}
+      onClick={() => window.open(props.link, "_blank")}
+    >
       <img
         className={classes.projectLogo}
         src={getImagePath(props.logo, "png")}
@@ -77,6 +85,7 @@ export const Projects = () => {
             name={project.name}
             logo={project.logo}
             description={project.description}
+            link={project.link}
             key={`${i}_${project.name}`}
           />
         ))}

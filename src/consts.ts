@@ -1,18 +1,26 @@
-export const projects: { name: string; description: string; logo: string }[] = [
+export const projects: {
+  name: string;
+  description: string;
+  logo: string;
+  link: string;
+}[] = [
   {
-    name: "CRM System",
+    name: "Smartico",
     description: "Customer Management Software",
-    logo: "viberr",
+    logo: "smartico",
+    link: "https://smartico.ai/",
   },
   {
-    name: "Affiliation Platform",
+    name: "The Affiliation Platform",
     description: "Partner Management Solution",
-    logo: "burger",
+    logo: "tap",
+    link: "https://www.theaffiliateplatform.com/en",
   },
   {
-    name: "Monitoring",
+    name: "Smartico Monitoring",
     description: "Server Performance Tracker",
-    logo: "fitlift",
+    logo: "monitoring",
+    link: "https://smartico.ai/",
   },
 ];
 
